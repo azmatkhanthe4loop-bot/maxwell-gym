@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MaxWell Gym - Build Beast Mode. Unleash Power. The ultimate hardcore gym experience.">
+    <title>MaxWell Gym | Build Beast Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;700&family=Teko:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Image (Bodybuilder) -->
+    <div class="hero-bg-image"></div>
+
+    <!-- Background Animation Canvas -->
+    <canvas id="hero-canvas"></canvas>
+
+    <!-- Overlay Gradient to ensure text readability -->
+    <div class="overlay"></div>
+
+    <nav class="navbar">
+        <div class="logo-cube-container">
+            <a href="index.html" class="logo-branding">
+                <div class="logo-icon-wrap">
+                    <div class="neon-ring-anim"></div>
+                    <svg class="logo-silhouette" viewBox="0 0 24 24">
+                        <path
+                            d="M12,2C10.89,2 10,2.89 10,4C10,5.11 10.89,6 12,6C13.11,6 14,5.11 14,4C14,2.89 13.11,2 12,2M15,19V22H13V18H11V22H9V19C9,17.9 9.9,17 11,17H13C14.1,17 15,17.9 15,19M21,12V16H19V12A1,1 0 0,0 18,11H16V16H14V11H15.11L14,8.13V7H10V8.13L8.89,11H10V16H8V11H6A1,1 0 0,0 5,12V16H3V12A3,3 0 0,1 6,9H9.46L10.46,6.5C10.74,5.79 11.45,5.33 12.21,5.33C12.92,5.33 13.57,5.71 13.89,6.31L15.12,9H18A3,3 0 0,1 21,12Z" />
+                    </svg>
+                </div>
+                <div class="logo-brand-text">
+                    <span class="brand-maxwell">MAXWELL</span>
+                    <span class="brand-gym-label">GYM</span>
+                </div>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="trainers.html">Trainers</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <main class="hero-section" id="home-hero">
+        <div class="hero-content">
+            <h2 class="sub-headline">TRAIN HARDER. LIFT HEAVIER. BECOME UNSTOPPABLE.</h2>
+            <h1 class="main-headline">BUILD <span class="text-glow">BEAST MODE</span><br>UNLEASH <span
+                    class="text-outline">POWER</span></h1>
+
+            <div class="cta-container">
+                <a href="membership.html" class="btn btn-primary">JOIN THE GYM</a>
+                <a href="about.html" class="btn btn-secondary">START YOUR TRANSFORMATION</a>
+            </div>
+        </div>
+
+        <!-- 3D Floating Element -->
+        <div class="hero-3d-object" id="hero-3d"></div>
+
+        <!-- Placeholder for Bodybuilder Visuals (User to replace with real transparency images) -->
+        <div class="hero-visuals">
+            <div class="athlete-silhouette"></div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">WHY <span class="text-highlight">MAXWELL?</span></h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-img-container">
+                        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Elite Atmosphere" class="about-img" loading="lazy">
+                    </div>
+                    <h3>ELITE ATMOSPHERE</h3>
+                    <p>Training environment designed for serious athletes. No distractions, just iron.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-img-container">
+                        <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="State of the Art" class="about-img" loading="lazy">
+                    </div>
+                    <h3>STATE OF THE ART</h3>
+                    <p>Futuristic equipment, biomechanically perfect machines, and heavy free weights.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-img-container">
+                        <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Hardcore Community" class="about-img" loading="lazy">
+                    </div>
+                    <h3>HARDCORE COMMUNITY</h3>
+                    <p>Surround yourself with the best. Iron sharpens iron. Join the movement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section-padding bg-darker">
+        <div class="container">
+            <h2 class="section-title">OUR <span class="text-stroke">PROGRAMS</span></h2>
+
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <div class="program-card">
+                    <div class="card-media">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+                            alt="Strength Architecture">
+                    </div>
+                    <div class="card-content">
+                        <h3>STRENGTH ARCHITECTURE</h3>
+                        <p>Master the big three. Focus on absolute strength and mechanical tension.</p>
+                        <a href="programs.html" class="text-highlight"
+                            style="text-decoration: none; margin-top: 1rem; display: inline-block;">LEARN MORE ❯</a>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="program-card">
+                    <div class="card-media">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop"
+                            alt="Hypertrophy Lab">
+                    </div>
+                    <div class="card-content">
+                        <h3>HYPERTROPHY LAB</h3>
+                        <p>Maximum muscle volume. Targeting isolation protocols for symmetry.</p>
+                        <a href="programs.html" class="text-highlight"
+                            style="text-decoration: none; margin-top: 1rem; display: inline-block;">LEARN MORE ❯</a>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="program-card">
+                    <div class="card-media">
+                        <img src="https://images.unsplash.com/photo-1623874514711-0f321325f318?q=80&w=2070&auto=format&fit=crop"
+                            alt="Elite Engine">
+                    </div>
+                    <div class="card-content">
+                        <h3>ELITE ENGINE</h3>
+                        <p>Functional endurance and explosive output that never quits.</p>
+                        <a href="programs.html" class="text-highlight"
+                            style="text-decoration: none; margin-top: 1rem; display: inline-block;">LEARN MORE ❯</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="centered" style="margin-top: 4rem;">
+                <div class="cta-container" style="justify-content: center;">
+                    <a href="programs.html" class="btn btn-primary">VIEW ALL PROTOCOLS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">JOIN THE <span class="text-highlight">LEGION</span></h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>STANDARD</h3>
+                    <div class="price">$49<span>/mo</span></div>
+                    <ul>
+                        <li>Access to Gym Floor</li>
+                        <li>Locker Room Access</li>
+                        <li>Free WiFi</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">JOIN NOW</a>
+                </div>
+                <div class="price-card featured">
+                    <div class="badge">POPULAR</div>
+                    <h3>BEAST MODE</h3>
+                    <div class="price text-highlight">$79<span>/mo</span></div>
+                    <ul>
+                        <li>24/7 Access</li>
+                        <li>Free Personal Training Session</li>
+                        <li>Sauna & Recovery Zone</li>
+                        <li>Guest Pass Included</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">JOIN NOW</a>
+                </div>
+                <div class="price-card">
+                    <h3>ELITE</h3>
+                    <div class="price">$129<span>/mo</span></div>
+                    <ul>
+                        <li>All Beast Mode Benefits</li>
+                        <li>Unlimited Classes</li>
+                        <li>Nutrition Plan</li>
+                        <li>Private Locker</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">JOIN NOW</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MAXWELL<span class="text-highlight">GYM</span></div>
+                <p>Build your legacy. The only limit is you.</p>
+                <div class="social-links">
+                    <a href="#">INSTAGRAM</a>
+                    <a href="#">FACEBOOK</a>
+                    <a href="#">TWITTER</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 MaxWell Gym. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+ 
+</html>

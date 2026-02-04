@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MaxWell Gym - Premium Membership Plans. Unlock your potential.">
+    <title>MaxWell Gym | Membership</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;700&family=Teko:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Unique 3D/Card Styles for Membership Page */
+        body {
+            background-color: #050505;
+            overflow-x: hidden;
+            perspective: 1000px;
+            /* Enable 3D space */
+        }
+
+        .membership-hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            border-bottom: 2px solid rgba(255, 102, 0, 0.3);
+            padding-top: 80px;
+        }
+
+        .membership-hero::before,
+        .membership-hero::after {
+            content: '';
+            position: absolute;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), var(--primary-glow), var(--primary-color), transparent);
+            animation: scanLine 4s linear infinite;
+            z-index: 5;
+        }
+
+        .membership-hero::before {
+            top: 0;
+        }
+
+        .membership-hero::after {
+            bottom: 0;
+        }
+
+        .hero-blur-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            filter: blur(3px) brightness(0.4);
+            z-index: 1;
+            animation: zoomEffect 20s ease-in-out infinite;
+        }
+
+        .hero-content-wrap {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .unlock-potential {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 12vw, 8rem);
+            margin: 0;
+            line-height: 1.25;
+            padding: 10px 0;
+            letter-spacing: 2px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .unlock-potential .solid {
+            color: #fff;
+        }
+
+        .unlock-potential .outline {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--primary-color);
+            text-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+        }
+
+        .choose-path {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #ccc;
+            letter-spacing: 4px;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        @keyframes scanLine {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes zoomEffect {
+
+            0%,
+            100% {
+                transform: scale(1.05);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* 3D Pricing Cards */
+        .pricing-section {
+            padding: 5rem 5%;
+            perspective: 1500px;
+        }
+
+        .pricing-3d-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            transform-style: preserve-3d;
+        }
+
+        .card-3d {
+            width: 350px;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(255, 102, 0, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-3d:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.5), -5px -5px 10px rgba(255, 102, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        /* Floating 3D Elements */
+        .card-floater {
+            position: absolute;
+            top: -30px;
+            right: -20px;
+            font-size: 4rem;
+            color: var(--primary-color);
+            transform: translateZ(50px);
+            /* Push out in 3D */
+            text-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+
+            0%,
+            100% {
+                transform: translateZ(50px) translateY(0);
+            }
+
+            50% {
+                transform: translateZ(50px) translateY(-10px);
+            }
+        }
+
+        .plan-name {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            transform: translateZ(20px);
+        }
+
+        .plan-price {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            transform: translateZ(30px);
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 3rem;
+            transform: translateZ(20px);
+            text-align: left;
+            padding-left: 1rem;
+        }
+
+        .plan-features li {
+            margin-bottom: 1rem;
+            color: #ddd;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .btn-3d {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transform: translateZ(40px);
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.4);
+            display: inline-block;
+            text-decoration: none;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+        }
+
+        .btn-3d:hover {
+            transform: translateZ(50px) scale(1.05);
+            background: white;
+            color: black;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Popular Badge 3D */
+        .badge-3d {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) translateZ(60px);
+            background: red;
+            color: white;
+            padding: 0.5rem 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.5);
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .membership-hero {
+                height: 40vh;
+            }
+
+            .card-3d {
+                width: 100%;
+                max-width: 400px;
+                margin-bottom: 2rem;
+            }
+
+            .pricing-3d-grid {
+                gap: 1rem;
+            }
+
+            .plan-price {
+                font-size: 3rem;
+            }
+
+            .plan-name {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo-cube-container">
+            <a href="index.html" class="logo-branding">
+                <div class="logo-icon-wrap">
+                    <div class="neon-ring-anim"></div>
+                    <svg class="logo-silhouette" viewBox="0 0 24 24">
+                        <path
+                            d="M12,2C10.89,2 10,2.89 10,4C10,5.11 10.89,6 12,6C13.11,6 14,5.11 14,4C14,2.89 13.11,2 12,2M15,19V22H13V18H11V22H9V19C9,17.9 9.9,17 11,17H13C14.1,17 15,17.9 15,19M21,12V16H19V12A1,1 0 0,0 18,11H16V16H14V11H15.11L14,8.13V7H10V8.13L8.89,11H10V16H8V11H6A1,1 0 0,0 5,12V16H3V12A3,3 0 0,1 6,9H9.46L10.46,6.5C10.74,5.79 11.45,5.33 12.21,5.33C12.92,5.33 13.57,5.71 13.89,6.31L15.12,9H18A3,3 0 0,1 21,12Z" />
+                    </svg>
+                </div>
+                <div class="logo-brand-text">
+                    <span class="brand-maxwell">MAXWELL</span>
+                    <span class="brand-gym-label">GYM</span>
+                </div>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="trainers.html">Trainers</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="membership.html" class="active">Membership</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <header class="membership-hero">
+        <div class="hero-blur-bg"></div>
+        <div class="hero-content-wrap">
+            <h1 class="unlock-potential">
+                <span class="solid">UNLOCK</span>
+                <span class="outline">POTENTIAL</span>
+            </h1>
+            <p class="choose-path">CHOOSE YOUR PATH TO GREATNESS</p>
+        </div>
+    </header>
+
+    <section class="pricing-section">
+        <div class="pricing-3d-grid">
+            <!-- Standard Plan -->
+            <div class="card-3d">
+                <div class="card-floater">⚙️</div>
+                <h2 class="plan-name">IRON</h2>
+                <div class="plan-price">$49</div>
+                <ul class="plan-features">
+                    <li>Access to Gym Floor</li>
+                    <li>Locker Room Access</li>
+                    <li>Free WiFi</li>
+                    <li>1 Guest Pass / Month</li>
+                </ul>
+                <a href="#" class="btn-3d">SELECT PLAN</a>
+            </div>
+
+            <!-- Best Value Plan -->
+            <div class="card-3d" style="border-color: var(--primary-color); background: rgba(30, 10, 0, 0.9);">
+                <div class="badge-3d">MOST POPULAR</div>
+                <div class="card-floater">🔥</div>
+                <h2 class="plan-name">BEAST</h2>
+                <div class="plan-price">$79</div>
+                <ul class="plan-features">
+                    <li>24/7 Access</li>
+                    <li>Free Personal Training Session</li>
+                    <li>Sauna & Recovery Zone</li>
+                    <li>Unlimited Guest Passes</li>
+                    <li>Free Smoothies (Sat)</li>
+                </ul>
+                <a href="#" class="btn-3d">SELECT PLAN</a>
+            </div>
+
+            <!-- Elite Plan -->
+            <div class="card-3d">
+                <div class="card-floater">👑</div>
+                <h2 class="plan-name">LEGEND</h2>
+                <div class="plan-price">$129</div>
+                <ul class="plan-features">
+                    <li>All Beast Mode Benefits</li>
+                    <li>Unlimited Classes</li>
+                    <li>Custom Nutrition Plan</li>
+                    <li>Private Locker</li>
+                    <li>Priority Support</li>
+                </ul>
+                <a href="#" class="btn-3d">SELECT PLAN</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MAXWELL<span class="text-highlight">GYM</span></div>
+                <p>Build your legacy. The only limit is you.</p>
+                <div class="copyright">
+                    &copy; 2026 MaxWell Gym. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MaxWell Gym - Contact Us. Find us on the map.">
+    <title>MaxWell Gym | Location</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;700&family=Teko:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Unique Contact Page Styles */
+        body {
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .contact-hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            border-top: 2px solid rgba(255, 102, 0, 0.3);
+            border-bottom: 2px solid rgba(255, 102, 0, 0.3);
+            padding-top: 80px;
+        }
+
+        .contact-hero::before,
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), var(--primary-glow), var(--primary-color), transparent);
+            animation: scanLine 4s linear infinite;
+            z-index: 5;
+        }
+
+        .contact-hero::before {
+            top: 0;
+        }
+
+        .contact-hero::after {
+            bottom: 0;
+        }
+
+        .hero-blur-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            filter: blur(3px) brightness(0.5);
+            z-index: 1;
+            animation: zoomEffect 20s ease-in-out infinite;
+            /* Prevent blur edges from showing */
+        }
+
+        @keyframes zoomEffect {
+
+            0%,
+            100% {
+                transform: scale(1.05);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes scanLine {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .hero-content-wrap {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .unlock-potential {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 12vw, 8rem);
+            margin: 0;
+            line-height: 1.25;
+            padding: 15px 0;
+            letter-spacing: 2px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .unlock-potential .solid {
+            color: #fff;
+        }
+
+        .unlock-potential .outline {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--primary-color);
+            text-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+        }
+
+        .choose-path {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #ccc;
+            letter-spacing: 4px;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* 3D Map Visual Placeholder */
+        .map-3d-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .map-visual {
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            /* Abstract darkness */
+            background-size: cover;
+            border-radius: 20px;
+            position: relative;
+            transform: perspective(1000px) rotateY(10deg);
+            box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.8);
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+
+        /* Simulated 3D Pin */
+        .map-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: var(--primary-color);
+            filter: drop-shadow(0 0 20px var(--primary-color));
+            animation: bouncePin 2s infinite;
+        }
+
+        @keyframes bouncePin {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%);
+            }
+
+            50% {
+                transform: translate(-50%, -70%);
+            }
+        }
+
+        .contact-form-container {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(20px);
+            padding: 3.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 102, 0, 0.1);
+            transform: perspective(1000px) rotateY(-8deg);
+            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 102, 0, 0.05) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .form-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .form-title span {
+            color: var(--primary-color);
+            -webkit-text-stroke: 1px var(--primary-color);
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-radius: 0;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            color: #888;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .form-group input:focus~label,
+        .form-group input:valid~label,
+        .form-group textarea:focus~label,
+        .form-group textarea:valid~label {
+            top: -1.2rem;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            letter-spacing: 3px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .form-group .focus-border {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.5s ease;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .form-group input:focus~.focus-border,
+        .form-group textarea:focus~.focus-border {
+            width: 100%;
+            left: 0;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--primary-color);
+            border: none;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(5% 0, 100% 0, 100% 70%, 95% 100%, 0 100%, 0 30%);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3);
+        }
+
+        .btn-submit:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.4);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .info-box {
+            text-align: center;
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .map-3d-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .map-visual,
+            .contact-form-container {
+                transform: none;
+                height: auto;
+                min-height: 400px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo-cube-container">
+            <a href="index.html" class="logo-branding">
+                <div class="logo-icon-wrap">
+                    <div class="neon-ring-anim"></div>
+                    <svg class="logo-silhouette" viewBox="0 0 24 24">
+                        <path
+                            d="M12,2C10.89,2 10,2.89 10,4C10,5.11 10.89,6 12,6C13.11,6 14,5.11 14,4C14,2.89 13.11,2 12,2M15,19V22H13V18H11V22H9V19C9,17.9 9.9,17 11,17H13C14.1,17 15,17.9 15,19M21,12V16H19V12A1,1 0 0,0 18,11H16V16H14V11H15.11L14,8.13V7H10V8.13L8.89,11H10V16H8V11H6A1,1 0 0,0 5,12V16H3V12A3,3 0 0,1 6,9H9.46L10.46,6.5C10.74,5.79 11.45,5.33 12.21,5.33C12.92,5.33 13.57,5.71 13.89,6.31L15.12,9H18A3,3 0 0,1 21,12Z" />
+                    </svg>
+                </div>
+                <div class="logo-brand-text">
+                    <span class="brand-maxwell">MAXWELL</span>
+                    <span class="brand-gym-label">GYM</span>
+                </div>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="trainers.html">Trainers</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <header class="contact-hero">
+        <div class="hero-blur-bg"></div>
+        <div class="hero-content-wrap">
+            <h1 class="unlock-potential">
+                <span class="solid">UNLOCK</span>
+                <span class="outline">POTENTIAL</span>
+            </h1>
+            <p class="choose-path">CHOOSE YOUR PATH TO GREATNESS</p>
+        </div>
+    </header>
+
+    <section class="map-3d-container">
+        <!-- Visual 3D Map Representation -->
+        <div class="map-visual">
+            <div class="map-pin">📍</div>
+            <div
+                style="position: absolute; bottom: 20px; left: 20px; color: white; background: rgba(0,0,0,0.7); padding: 10px;">
+                <h3>MAXWELL HQ</h3>
+                <p>101 Iron Street, Muscle City</p>
+            </div>
+        </div>
+
+        <!-- 3D Form -->
+        <div class="contact-form-container">
+            <h2 class="form-title">SEND <span>INTENT</span></h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" required>
+                    <label>Full Name</label>
+                    <div class="focus-border"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" required>
+                    <label>Email Address</label>
+                    <div class="focus-border"></div>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" required></textarea>
+                    <label>Your Message</label>
+                    <div class="focus-border"></div>
+                </div>
+                <button type="submit" class="btn-submit">DECODE POWER</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="contact-info">
+        <div class="info-box">
+            <div class="info-icon">📞</div>
+            <h3>PHONE</h3>
+            <p>+1 (555) 000-IRON</p>
+        </div>
+        <div class="info-box">
+            <div class="info-icon">✉️</div>
+            <h3>EMAIL</h3>
+            <p>join@maxwellgym.com</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MAXWELL<span class="text-highlight">GYM</span></div>
+                <p>Build your legacy. The only limit is you.</p>
+                <div class="copyright">
+                    &copy; 2026 MaxWell Gym. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

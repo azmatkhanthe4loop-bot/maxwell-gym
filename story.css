@@ -6,7 +6,8 @@
 
 /* 1. Story Hero */
 .story-hero {
-    height: 90vh;
+    min-height: 80vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +16,7 @@
     overflow: hidden;
     background: #000;
     border-bottom: 2px solid rgba(255, 102, 0, 0.3);
-    padding-top: 80px;
+    padding: 160px 5% 100px;
 }
 
 .story-hero::before,
@@ -58,15 +59,15 @@
 
 .unlock-potential {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 12vw, 8rem);
+    font-size: clamp(2rem, 9vw, 6rem);
     margin: 0;
     line-height: 1.25;
-    padding: 10px 0;
-    letter-spacing: 2px;
+    padding: 8px 0;
+    letter-spacing: 1px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .unlock-potential .solid {
@@ -81,7 +82,7 @@
 
 .choose-path {
     font-family: 'Outfit', sans-serif;
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
     color: #ccc;
     letter-spacing: 4px;
     margin-top: 1.5rem;
@@ -440,15 +441,28 @@
 
 /* Mobile Responsive */
 @media (max-width: 900px) {
+    .story-hero {
+        min-height: 70vh;
+        padding: 120px 1.5rem 60px;
+    }
+
+    .unlock-potential {
+        font-size: clamp(2.5rem, 10vw, 5rem);
+    }
 
     .visual-row,
     .grid-2 {
         grid-template-columns: 1fr;
         gap: 3rem;
+        text-align: center;
     }
 
     .visual-row.reverse .visual-video {
         order: 0;
+    }
+
+    .visual-video {
+        height: 350px;
     }
 
     .timeline::after {
@@ -458,7 +472,9 @@
     .timeline-item {
         width: 100%;
         padding-left: 70px;
-        padding-right: 25px;
+        padding-right: 15px;
+        opacity: 1;
+        transform: none;
     }
 
     .timeline-item::after {
@@ -468,11 +484,42 @@
     .timeline-item.right {
         left: 0%;
     }
+
+    .visual-content h2 {
+        font-size: 2.8rem;
+    }
+
+    .ethos-list li {
+        font-size: 1.6rem;
+        justify-content: center;
+    }
+
+    .timeline-section {
+        padding: 80px 1.5rem;
+    }
 }
 
 @media (max-width: 600px) {
+    .story-hero {
+        padding: 100px 1rem 50px;
+    }
+
+    .unlock-potential {
+        gap: 0.6rem;
+        font-size: clamp(2rem, 12vw, 4rem);
+    }
+
+    .choose-path {
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+    }
+
     .visual-content h2 {
-        font-size: 3rem;
+        font-size: 2.2rem;
+    }
+
+    .visual-video {
+        height: 280px;
     }
 
     .timeline-content {
@@ -480,6 +527,28 @@
     }
 
     .year {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .parallax-quote {
+        height: auto;
+        padding: 4rem 1.5rem;
+        background-attachment: scroll;
+    }
+
+    .quote-container blockquote {
+        font-size: clamp(1.8rem, 8vw, 3rem);
+    }
+
+    .ethos-list li {
+        font-size: 1.4rem;
+    }
+
+    .timeline-section {
+        padding: 60px 1rem;
     }
 }

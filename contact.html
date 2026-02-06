@@ -16,10 +16,12 @@
             background: #000;
             color: white;
             overflow-x: hidden;
+            width: 100%;
         }
 
         .contact-hero {
-            height: 80vh;
+            min-height: 80vh;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -28,7 +30,7 @@
             background: #000;
             border-top: 2px solid rgba(255, 102, 0, 0.3);
             border-bottom: 2px solid rgba(255, 102, 0, 0.3);
-            padding-top: 80px;
+            padding: 160px 5% 100px;
         }
 
         .contact-hero::before,
@@ -94,15 +96,15 @@
 
         .unlock-potential {
             font-family: var(--font-heading);
-            font-size: clamp(3rem, 12vw, 8rem);
+            font-size: clamp(2rem, 9vw, 6rem);
             margin: 0;
             line-height: 1.25;
-            padding: 15px 0;
-            letter-spacing: 2px;
+            padding: 8px 0;
+            letter-spacing: 1px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .unlock-potential .solid {
@@ -117,7 +119,8 @@
 
         .choose-path {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+            /* Smaller base */
             color: #ccc;
             letter-spacing: 4px;
             margin-top: 1.5rem;
@@ -133,8 +136,8 @@
             padding: 4rem 5%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            gap: 3rem;
+            align-items: start;
         }
 
         .map-visual {
@@ -180,8 +183,6 @@
             padding: 3.5rem;
             border-radius: 20px;
             border: 1px solid rgba(255, 102, 0, 0.1);
-            transform: perspective(1000px) rotateY(-8deg);
-            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.7);
             position: relative;
             overflow: hidden;
         }
@@ -322,21 +323,56 @@
 
         /* Responsive Styles */
         @media (max-width: 1024px) {
-            .map-3d-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .contact-hero {
+                min-height: 50vh;
+                padding: 100px 5% 40px;
             }
 
-            .map-visual,
-            .contact-form-container {
+            .map-3d-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 3rem 1.5rem;
+            }
+
+            .map-visual {
                 transform: none;
-                height: auto;
-                min-height: 400px;
+                height: 350px;
+            }
+
+            .contact-form-container {
+                padding: 2.5rem 1.5rem;
+                transform: none;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             }
 
             .contact-info {
                 flex-direction: column;
-                gap: 2rem;
+                gap: 2.5rem;
+                margin-top: 3rem;
+                padding-bottom: 4rem;
+            }
+
+            .unlock-potential {
+                gap: 1rem;
+            }
+
+            .form-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .unlock-potential {
+                gap: 0.5rem;
+            }
+
+            .choose-path {
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+            }
+
+            .btn-submit {
+                font-size: 1.5rem;
             }
         }
     </style>

@@ -2,7 +2,8 @@
 
 /* Hero */
 .about-hero {
-    height: 90vh;
+    min-height: 80vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,8 +12,8 @@
     overflow: hidden;
     background: #000;
     border-bottom: 2px solid rgba(255, 102, 0, 0.3);
-    padding-top: 80px;
-    /* Space for fixed navbar */
+    padding: 160px 5% 100px;
+    /* Increased padding */
 }
 
 .about-hero::before,
@@ -55,15 +56,15 @@
 
 .unlock-potential {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 12vw, 8rem);
+    font-size: clamp(2rem, 9vw, 6rem);
     margin: 0;
     line-height: 1.25;
-    padding: 10px 0;
-    letter-spacing: 2px;
+    padding: 8px 0;
+    letter-spacing: 1px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .unlock-potential .solid {
@@ -78,7 +79,7 @@
 
 .choose-path {
     font-family: 'Outfit', sans-serif;
-    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
     color: #ccc;
     letter-spacing: 4px;
     margin-top: 1.5rem;
@@ -220,13 +221,16 @@
 
 .stats-row {
     display: flex;
-    gap: 3rem;
+    gap: clamp(1.5rem, 5vw, 3rem);
     margin-top: 3rem;
+    flex-wrap: wrap;
 }
 
 .stat {
     display: flex;
     flex-direction: column;
+    flex: 1;
+    min-width: 150px;
 }
 
 .stat .number {
@@ -443,12 +447,18 @@
 /* Responsive Adjustments */
 @media (max-width: 900px) {
     .about-hero {
-        height: 60vh;
+        min-height: 70vh;
+        height: auto;
+        padding: 120px 1.5rem 60px;
+    }
+
+    .unlock-potential {
+        font-size: clamp(2.5rem, 10vw, 5rem);
     }
 
     .story-container {
         flex-direction: column;
-        gap: 2rem;
+        gap: 3rem;
         text-align: center;
     }
 
@@ -459,7 +469,8 @@
     .lead-text {
         border-left: none;
         border-bottom: 2px solid var(--primary-color);
-        padding: 0 0 1rem 0;
+        padding: 0 0 1.5rem 0;
+        margin-bottom: 2rem;
     }
 
     .stats-row {
@@ -469,26 +480,79 @@
 
     .mission-grid {
         flex-direction: column;
-        gap: 3rem;
+        gap: 4rem;
     }
 
     .division-line {
-        width: 100px;
+        width: 120px;
         height: 2px;
         margin: 0 auto;
     }
 
     .video-overlay-text h2 {
-        font-size: clamp(3rem, 15vw, 5rem);
+        font-size: clamp(3rem, 12vw, 5rem);
     }
 
     .trainers-grid {
         grid-template-columns: 1fr;
-        max-width: 450px;
+        max-width: 500px;
         margin: 0 auto;
     }
 
     .cta-section h2 {
-        font-size: clamp(2rem, 8vw, 3rem);
+        font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+
+    .facility-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .facility-item img {
+        height: 280px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-hero {
+        padding: 100px 1rem 40px;
+    }
+
+    .unlock-potential {
+        gap: 0.6rem;
+        font-size: clamp(2rem, 12vw, 3.5rem);
+    }
+
+    .choose-path {
+        letter-spacing: 2px;
+        font-size: 0.85rem;
+    }
+
+    .stat .number {
+        font-size: 2.5rem;
+    }
+
+    .stat .label {
+        font-size: 0.75rem;
+    }
+
+    .mission-box h3 {
+        font-size: 1.8rem;
+    }
+
+    .facility-item img {
+        height: 220px;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .trainer-img {
+        height: 350px;
     }
 }

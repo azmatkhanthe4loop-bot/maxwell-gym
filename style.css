@@ -8,13 +8,13 @@
     --font-heading: 'Teko', sans-serif;
     --font-body: 'Outfit', sans-serif;
 
-    /* Fluid Typography */
-    --h1-size: clamp(3rem, 10vw, 6rem);
-    --h2-size: clamp(2.5rem, 8vw, 4.5rem);
-    --h3-size: clamp(1.8rem, 5vw, 2.8rem);
-    --body-size: clamp(0.9rem, 2vw, 1.1rem);
+    /* Even More Reduced Fluid Typography */
+    --h1-size: clamp(2.2rem, 8vw, 4.5rem);
+    --h2-size: clamp(1.8rem, 6vw, 3.2rem);
+    --h3-size: clamp(1.4rem, 4vw, 2rem);
+    --body-size: clamp(1rem, 1.5vw, 1.1rem);
 
-    --container-padding: clamp(1rem, 5vw, 5rem);
+    --container-padding: clamp(1rem, 4vw, 5rem);
 }
 
 * {
@@ -23,14 +23,26 @@
     box-sizing: border-box;
 }
 
+html,
 body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
     background-color: var(--bg-color);
+}
+
+body {
     color: var(--text-color);
     font-family: var(--font-body);
     overflow-x: hidden;
-    height: 100vh;
-    width: 100vw;
     position: relative;
+    line-height: 1.6;
+}
+
+body.menu-open {
+    overflow: hidden !important;
+    height: 100vh;
 }
 
 /* Hero Background Image */
@@ -81,16 +93,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem var(--container-padding);
+    padding: 1rem var(--container-padding);
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
-    background: var(--glass-bg);
+    left: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 102, 0, 0.2);
-    transition: all 0.4s ease;
-    overflow: hidden;
+    transition: background 0.4s ease;
 }
 
 .navbar::after {
@@ -308,12 +320,13 @@ body {
 
 /* Hero Section */
 .hero-section {
-    height: 110vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 80px 5% 0;
-    /* 80px top padding for fixed navbar */
+    padding: 160px 5% 100px;
+    /* Increased top/bottom padding */
     position: relative;
     overflow: hidden;
 }
@@ -521,9 +534,10 @@ body {
 .section-title {
     font-family: var(--font-heading);
     font-size: var(--h2-size);
-    text-align: center;
-    margin-bottom: clamp(2rem, 5vw, 4rem);
     text-transform: uppercase;
+    margin-bottom: 4rem;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 /* Image Optimization / Lazy Loading Support */
@@ -837,45 +851,108 @@ img {
 @media (max-width: 900px) {
     .menu-toggle {
         display: flex;
+        z-index: 10001;
     }
 
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
+        left: 0;
         width: 100%;
         height: 100vh;
         background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-        backdrop-filter: blur(20px);
-        z-index: 999;
+        z-index: 10000;
         gap: 2rem;
+        padding: 2rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100%);
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
     }
 
     .nav-links.active {
-        right: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
     }
 
     .nav-links li {
         width: 100%;
         text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: none;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+        animation: slideInNav 0.4s ease forwards;
+    }
+
+    .nav-links.active li:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .nav-links.active li:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+
+    .nav-links.active li:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+
+    .nav-links.active li:nth-child(4) {
+        animation-delay: 0.25s;
+    }
+
+    .nav-links.active li:nth-child(5) {
+        animation-delay: 0.3s;
+    }
+
+    .nav-links.active li:nth-child(6) {
+        animation-delay: 0.35s;
+    }
+
+    .nav-links.active li:nth-child(7) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes slideInNav {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .nav-links a {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-family: var(--font-heading);
-        display: block;
+        display: inline-block;
         padding: 1rem;
+        width: auto;
+        transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:hover {
+        transform: scale(1.1);
     }
 
     /* Layout Adjustments */
     .hero-section {
         justify-content: center;
         text-align: center;
-        padding: 0 1rem;
+        padding: 140px 1.5rem 80px;
+        min-height: 80vh;
     }
 
     .hero-content {
@@ -884,43 +961,88 @@ img {
 
     .hero-3d-object {
         display: none;
-        /* Perf optimization */
     }
 
     .cta-container {
         flex-direction: column;
         width: 100%;
-        max-width: 400px;
-        margin-inline: auto;
+        max-width: 320px;
+        margin: 3rem auto 0;
+        gap: 1.5rem;
     }
 
     .btn {
         width: 100%;
         text-align: center;
+        padding: 1.2rem;
+        font-size: 1.4rem;
     }
 
     .pricing-grid,
-    .programs-grid {
-        grid-template-columns: 1fr !important;
-        gap: 2rem;
+    .programs-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
     .price-card.featured {
-        transform: none;
+        transform: scale(1);
     }
 
     .section-title {
-        font-size: var(--h2-size);
-        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
     }
 }
 
 @media (max-width: 600px) {
     .navbar {
-        padding: 1rem 5%;
+        padding: 0.8rem 5%;
+    }
+
+    .logo-icon-wrap {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-silhouette {
+        width: 32px;
+        height: 32px;
+    }
+
+    .brand-maxwell {
+        font-size: 0.9rem;
+    }
+
+    .brand-gym-label {
+        font-size: 0.6rem;
+    }
+
+    .sub-headline {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        padding-left: 0.8rem;
     }
 
     .main-headline {
         margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    .section-padding {
+        padding: 4rem 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+        font-size: 2rem;
+    }
+
+    .cta-container {
+        margin-top: 2rem;
     }
 }

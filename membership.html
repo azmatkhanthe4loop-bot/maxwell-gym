@@ -17,12 +17,12 @@
         body {
             background-color: #050505;
             overflow-x: hidden;
-            perspective: 1000px;
-            /* Enable 3D space */
+            width: 100%;
         }
 
         .membership-hero {
-            height: 80vh;
+            min-height: 80vh;
+            height: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -31,7 +31,7 @@
             overflow: hidden;
             background: #000;
             border-bottom: 2px solid rgba(255, 102, 0, 0.3);
-            padding-top: 80px;
+            padding: 160px 5% 100px;
         }
 
         .membership-hero::before,
@@ -74,15 +74,15 @@
 
         .unlock-potential {
             font-family: var(--font-heading);
-            font-size: clamp(3rem, 12vw, 8rem);
+            font-size: clamp(2rem, 9vw, 6rem);
             margin: 0;
             line-height: 1.25;
-            padding: 10px 0;
-            letter-spacing: 2px;
+            padding: 8px 0;
+            letter-spacing: 1px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .unlock-potential .solid {
@@ -97,7 +97,8 @@
 
         .choose-path {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+            /* Smaller base */
             color: #ccc;
             letter-spacing: 4px;
             margin-top: 1.5rem;
@@ -129,16 +130,14 @@
 
         /* 3D Pricing Cards */
         .pricing-section {
-            padding: 5rem 5%;
-            perspective: 1500px;
+            padding: 4rem 5%;
         }
 
         .pricing-3d-grid {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 2rem;
             flex-wrap: wrap;
-            transform-style: preserve-3d;
         }
 
         .card-3d {
@@ -267,25 +266,54 @@
         /* Responsive Styles */
         @media (max-width: 1024px) {
             .membership-hero {
-                height: 40vh;
+                min-height: 50vh;
+                padding: 100px 5% 40px;
             }
 
             .card-3d {
                 width: 100%;
                 max-width: 400px;
                 margin-bottom: 2rem;
+                transform: none !important;
             }
 
             .pricing-3d-grid {
-                gap: 1rem;
+                gap: 1.5rem;
             }
 
             .plan-price {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
 
             .plan-name {
                 font-size: 2.5rem;
+            }
+
+            .card-floater {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .unlock-potential {
+                gap: 0.8rem;
+            }
+
+            .choose-path {
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+            }
+
+            .pricing-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .card-3d {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .plan-price {
+                font-size: 3rem;
             }
         }
     </style>
